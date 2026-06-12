@@ -124,13 +124,14 @@ class GenderPredictor:
         prediction = self.model.predict(image, verbose=0)[0][0]  # Single scalar output
 
         # Determine gender label and confidence
-        # Sigmoid output: 0 → Male, 1 → Female, threshold at 0.5
-        if prediction >= 0.5:
+        # Model output: low values → Female, high values → Male
+        # (inverted from training labels due to transfer learning convergence)
+        if prediction < 0.5:
             gender_label = "Female"
-            confidence = float(prediction)
+            confidence = float(1.0 - prediction)
         else:
             gender_label = "Male"
-            confidence = float(1.0 - prediction)
+            confidence = float(prediction)
 
         return gender_label, confidence
 

@@ -124,12 +124,13 @@ def predict(image: Image.Image, age_model, hair_model, gender_model):
     else:
         # Standard prediction: use gender predictor
         gender_pred = gender_model.predict(img_batch, verbose=0)[0, 0]
-        if gender_pred >= 0.5:
+        # Model learned: low values = Female, high values = Male
+        if gender_pred < 0.5:
             label = "Female"
-            confidence = float(gender_pred)
+            confidence = float(1.0 - gender_pred)
         else:
             label = "Male"
-            confidence = float(1.0 - gender_pred)
+            confidence = float(gender_pred)
 
         age_group_display = "Outside age range (standard prediction)"
 

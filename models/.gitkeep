@@ -1,0 +1,2 @@
+# This file ensures the models/ directory is tracked in git
+# Trained model files will be saved here by the training pipeline

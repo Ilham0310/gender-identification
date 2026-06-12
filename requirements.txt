@@ -1,0 +1,9 @@
+tensorflow
+keras
+opencv-python
+PyQt5
+numpy
+pandas
+hypothesis
+pytest
+scikit-learn

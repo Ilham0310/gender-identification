@@ -1,0 +1,2 @@
+# This file ensures the tests/ directory is tracked in git
+# Unit tests and property-based tests will be stored here

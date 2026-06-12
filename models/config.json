@@ -1,0 +1,39 @@
+{
+  "seed": 42,
+  "dataset_split": {
+    "train": 0.7,
+    "val": 0.1,
+    "test": 0.2
+  },
+  "model_architecture": "MobileNetV2",
+  "hyperparameters": {
+    "age_estimator": {
+      "learning_rate": 0.0001,
+      "batch_size": 32,
+      "epochs": 15,
+      "fine_tune_from_layer": 100,
+      "dropout": 0.3
+    },
+    "hair_classifier": {
+      "learning_rate": 0.0001,
+      "batch_size": 32,
+      "epochs": 10,
+      "undetermined_threshold": 0.55
+    },
+    "gender_predictor": {
+      "learning_rate": 0.0001,
+      "batch_size": 32,
+      "epochs": 10
+    }
+  },
+  "accuracy_thresholds": {
+    "gender_standard": 0.7,
+    "hair_biased": 0.8,
+    "age_group": 0.75
+  },
+  "validation_accuracy_achieved": {
+    "gender_standard": 0.8794757033248082,
+    "hair_biased": 0.7682775712515489,
+    "age_group": 0.8047237452551665
+  }
+}
